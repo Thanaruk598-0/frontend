@@ -1,11 +1,21 @@
-import logo from "./logo.svg";
-import "./App.css";
+import React from "react";
+import { ThemeProvider } from "@emotion/react";
+import Routers from "./Routers/Routers";
+
+// mock theme
+const darkTheme = {
+  colors: {
+    primary: "#333",
+    background: "#000",
+    text: "#fff",
+  },
+};
 
 function App() {
   return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      <Routers />
+    </ThemeProvider>
   );
 }
 
