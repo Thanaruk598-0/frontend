@@ -1,5 +1,7 @@
 import React from 'react'
 import { PaymentSucess } from '../component/Navbar/PaymentSuccess/PaymentSucess'
+import { Routes, Route } from 'react-router-dom';
+
 
 const CustomerRoute = () => {
   return (

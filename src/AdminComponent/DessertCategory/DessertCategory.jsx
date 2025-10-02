@@ -1,8 +1,12 @@
 import React from 'react'
+import DessertCategoryTable from './DessertCategoryTable'
 
 const DessertCategory = () => {
   return (
-    <div>DessertCategory</div>
+    <div>
+      <DessertCategoryTable/>
+
+    </div>
   )
 }
 

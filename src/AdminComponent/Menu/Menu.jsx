@@ -1,9 +1,10 @@
 import React from 'react'
+import MenuTable from './MenuTable';
 
-const Menu = () => {
+export const Menu = () => {
   return (
-    <div>Menu</div>
+   <div className='px-2'>
+       <MenuTable/>
+    </div>
   )
 }
-
-export default Menu
