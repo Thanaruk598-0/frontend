@@ -4,7 +4,7 @@ import TaskAltIcon from '@mui/icons-material/TaskAlt';
 export const PaymentSucess = () => {
     const navigate = useNavigate();
     return (
-        <div className='min-h-screen px-5'>
+        <div className="min-h-screen px-5">
             <div className="flex flex-col items-center justify-center h-[90vh] px-5 ">
                 <Card className="box w-full lg:w-11/4 flex flex-col items-center rounded-md p-5">
                     <TaskAltIcon sx={{ fontsize: "5em", color: green[500] }} />
