@@ -1,0 +1,604 @@
+diff --git a/README.md b/README.md
+index 58beeac..45240a7 100644
+--- a/README.md
++++ b/README.md
+@@ -68,3 +68,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
+ ### `npm run build` fails to minify
+ 
+ This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
++
+diff --git a/package-lock.json b/package-lock.json
+index 2b1243e..f0818af 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -16,11 +16,16 @@
+         "@testing-library/jest-dom": "^6.8.0",
+         "@testing-library/react": "^16.3.0",
+         "@testing-library/user-event": "^13.5.0",
++        "formik": "^2.4.6",
++        "formik-mui": "^5.0.0-alpha.1",
+         "react": "^19.1.1",
+         "react-dom": "^19.1.1",
+-        "react-router-dom": "^7.9.1",
++        "react-router-dom": "^7.9.3",
+         "react-scripts": "5.0.1",
+-        "web-vitals": "^2.1.4"
++        "react-slick": "^0.31.0",
++        "slick-carousel": "^1.8.1",
++        "web-vitals": "^2.1.4",
++        "yup": "^1.2.0"
+       },
+       "devDependencies": {
+         "tailwindcss": "^3.4.17"
+@@ -4114,6 +4119,18 @@
+         "@types/node": "*"
+       }
+     },
++    "node_modules/@types/hoist-non-react-statics": {
++      "version": "3.3.7",
++      "resolved": "https://registry.npmjs.org/@types/hoist-non-react-statics/-/hoist-non-react-statics-3.3.7.tgz",
++      "integrity": "sha512-PQTyIulDkIDro8P+IHbKCsw7U2xxBYflVzW/FgWdCAePD9xGSidgA76/GeJ6lBKoblyhf9pBY763gbrN+1dI8g==",
++      "license": "MIT",
++      "dependencies": {
++        "hoist-non-react-statics": "^3.3.0"
++      },
++      "peerDependencies": {
++        "@types/react": "*"
++      }
++    },
+     "node_modules/@types/html-minifier-terser": {
+       "version": "6.1.0",
+       "resolved": "https://registry.npmjs.org/@types/html-minifier-terser/-/html-minifier-terser-6.1.0.tgz",
+@@ -6056,6 +6073,12 @@
+       "integrity": "sha512-9z8TZaGM1pfswYeXrUpzPrkx8UnWYdhJclsiYMm6x/w5+nN+8Tf/LnAgfLGQCm59qAOxU8WwHEq2vNwF6i4j+Q==",
+       "license": "MIT"
+     },
++    "node_modules/classnames": {
++      "version": "2.5.1",
++      "resolved": "https://registry.npmjs.org/classnames/-/classnames-2.5.1.tgz",
++      "integrity": "sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==",
++      "license": "MIT"
++    },
+     "node_modules/clean-css": {
+       "version": "5.3.3",
+       "resolved": "https://registry.npmjs.org/clean-css/-/clean-css-5.3.3.tgz",
+@@ -8828,6 +8851,52 @@
+         "node": ">= 6"
+       }
+     },
++    "node_modules/formik": {
++      "version": "2.4.6",
++      "resolved": "https://registry.npmjs.org/formik/-/formik-2.4.6.tgz",
++      "integrity": "sha512-A+2EI7U7aG296q2TLGvNapDNTZp1khVt5Vk0Q/fyfSROss0V/V6+txt2aJnwEos44IxTCW/LYAi/zgWzlevj+g==",
++      "funding": [
++        {
++          "type": "individual",
++          "url": "https://opencollective.com/formik"
++        }
++      ],
++      "license": "Apache-2.0",
++      "dependencies": {
++        "@types/hoist-non-react-statics": "^3.3.1",
++        "deepmerge": "^2.1.1",
++        "hoist-non-react-statics": "^3.3.0",
++        "lodash": "^4.17.21",
++        "lodash-es": "^4.17.21",
++        "react-fast-compare": "^2.0.1",
++        "tiny-warning": "^1.0.2",
++        "tslib": "^2.0.0"
++      },
++      "peerDependencies": {
++        "react": ">=16.8.0"
++      }
++    },
++    "node_modules/formik-mui": {
++      "version": "5.0.0-alpha.1",
++      "resolved": "https://registry.npmjs.org/formik-mui/-/formik-mui-5.0.0-alpha.1.tgz",
++      "integrity": "sha512-sHzrQwAWdVuKOdI0Xe1kCzXSjKXr50Jcot+szLc64SPw06J4DqwXN3GNxbhvfyEBGJBIL36e+cSSbm2i++tqqg==",
++      "license": "MIT",
++      "peerDependencies": {
++        "@mui/material": ">5.6.0",
++        "formik": ">=2.2.9",
++        "react": ">=17.0.2",
++        "tiny-warning": ">=1.0.3"
++      }
++    },
++    "node_modules/formik/node_modules/deepmerge": {
++      "version": "2.2.1",
++      "resolved": "https://registry.npmjs.org/deepmerge/-/deepmerge-2.2.1.tgz",
++      "integrity": "sha512-R9hc1Xa/NOBi9WRVUWg19rl1UB7Tt4kuPd+thNJgFZoxXsTz7ncaPaeIm+40oSGuP33DfMb4sZt1QIGiJzC4EA==",
++      "license": "MIT",
++      "engines": {
++        "node": ">=0.10.0"
++      }
++    },
+     "node_modules/forwarded": {
+       "version": "0.2.0",
+       "resolved": "https://registry.npmjs.org/forwarded/-/forwarded-0.2.0.tgz",
+@@ -11333,6 +11402,13 @@
+         "jiti": "bin/jiti.js"
+       }
+     },
++    "node_modules/jquery": {
++      "version": "3.7.1",
++      "resolved": "https://registry.npmjs.org/jquery/-/jquery-3.7.1.tgz",
++      "integrity": "sha512-m4avr8yL8kmFN8psrbFFFmB/If14iN5o9nw/NgnnM+kybDJpRsAynV2BsfpTYrTRysYUdADVD7CkUUizgkpLfg==",
++      "license": "MIT",
++      "peer": true
++    },
+     "node_modules/js-tokens": {
+       "version": "4.0.0",
+       "resolved": "https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz",
+@@ -11440,6 +11516,15 @@
+       "integrity": "sha512-Bdboy+l7tA3OGW6FjyFHWkP5LuByj1Tk33Ljyq0axyzdk9//JSi2u3fP1QSmd1KNwq6VOKYGlAu87CisVir6Pw==",
+       "license": "MIT"
+     },
++    "node_modules/json2mq": {
++      "version": "0.2.0",
++      "resolved": "https://registry.npmjs.org/json2mq/-/json2mq-0.2.0.tgz",
++      "integrity": "sha512-SzoRg7ux5DWTII9J2qkrZrqV1gt+rTaoufMxEzXbS26Uid0NwaJd123HcoB80TgubEppxxIGdNxCx50fEoEWQA==",
++      "license": "MIT",
++      "dependencies": {
++        "string-convert": "^0.2.0"
++      }
++    },
+     "node_modules/json5": {
+       "version": "2.2.3",
+       "resolved": "https://registry.npmjs.org/json5/-/json5-2.2.3.tgz",
+@@ -11653,6 +11738,12 @@
+       "integrity": "sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==",
+       "license": "MIT"
+     },
++    "node_modules/lodash-es": {
++      "version": "4.17.21",
++      "resolved": "https://registry.npmjs.org/lodash-es/-/lodash-es-4.17.21.tgz",
++      "integrity": "sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==",
++      "license": "MIT"
++    },
+     "node_modules/lodash.debounce": {
+       "version": "4.0.8",
+       "resolved": "https://registry.npmjs.org/lodash.debounce/-/lodash.debounce-4.0.8.tgz",
+@@ -14106,6 +14197,12 @@
+       "integrity": "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==",
+       "license": "MIT"
+     },
++    "node_modules/property-expr": {
++      "version": "2.0.6",
++      "resolved": "https://registry.npmjs.org/property-expr/-/property-expr-2.0.6.tgz",
++      "integrity": "sha512-SVtmxhRE/CGkn3eZY1T6pC8Nln6Fr/lu1mKSgRud0eC73whjGfoAogbn78LkD8aFL0zz3bAFerKSnOl7NlErBA==",
++      "license": "MIT"
++    },
+     "node_modules/proxy-addr": {
+       "version": "2.0.7",
+       "resolved": "https://registry.npmjs.org/proxy-addr/-/proxy-addr-2.0.7.tgz",
+@@ -14404,6 +14501,12 @@
+       "integrity": "sha512-SN/U6Ytxf1QGkw/9ve5Y+NxBbZM6Ht95tuXNMKs8EJyFa/Vy/+Co3stop3KBHARfn/giv+Lj1uUnTfOJ3moFEQ==",
+       "license": "MIT"
+     },
++    "node_modules/react-fast-compare": {
++      "version": "2.0.4",
++      "resolved": "https://registry.npmjs.org/react-fast-compare/-/react-fast-compare-2.0.4.tgz",
++      "integrity": "sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==",
++      "license": "MIT"
++    },
+     "node_modules/react-is": {
+       "version": "17.0.2",
+       "resolved": "https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz",
+@@ -14420,9 +14523,9 @@
+       }
+     },
+     "node_modules/react-router": {
+-      "version": "7.9.1",
+-      "resolved": "https://registry.npmjs.org/react-router/-/react-router-7.9.1.tgz",
+-      "integrity": "sha512-pfAByjcTpX55mqSDGwGnY9vDCpxqBLASg0BMNAuMmpSGESo/TaOUG6BllhAtAkCGx8Rnohik/XtaqiYUJtgW2g==",
++      "version": "7.9.3",
++      "resolved": "https://registry.npmjs.org/react-router/-/react-router-7.9.3.tgz",
++      "integrity": "sha512-4o2iWCFIwhI/eYAIL43+cjORXYn/aRQPgtFRRZb3VzoyQ5Uej0Bmqj7437L97N9NJW4wnicSwLOLS+yCXfAPgg==",
+       "license": "MIT",
+       "dependencies": {
+         "cookie": "^1.0.1",
+@@ -14442,12 +14545,12 @@
+       }
+     },
+     "node_modules/react-router-dom": {
+-      "version": "7.9.1",
+-      "resolved": "https://registry.npmjs.org/react-router-dom/-/react-router-dom-7.9.1.tgz",
+-      "integrity": "sha512-U9WBQssBE9B1vmRjo9qTM7YRzfZ3lUxESIZnsf4VjR/lXYz9MHjvOxHzr/aUm4efpktbVOrF09rL/y4VHa8RMw==",
++      "version": "7.9.3",
++      "resolved": "https://registry.npmjs.org/react-router-dom/-/react-router-dom-7.9.3.tgz",
++      "integrity": "sha512-1QSbA0TGGFKTAc/aWjpfW/zoEukYfU4dc1dLkT/vvf54JoGMkW+fNA+3oyo2gWVW1GM7BxjJVHz5GnPJv40rvg==",
+       "license": "MIT",
+       "dependencies": {
+-        "react-router": "7.9.1"
++        "react-router": "7.9.3"
+       },
+       "engines": {
+         "node": ">=20.0.0"
+@@ -14539,6 +14642,22 @@
+         }
+       }
+     },
++    "node_modules/react-slick": {
++      "version": "0.31.0",
++      "resolved": "https://registry.npmjs.org/react-slick/-/react-slick-0.31.0.tgz",
++      "integrity": "sha512-zo6VLT8wuSBJffg/TFPbzrw2dEnfZ/cUKmYsKByh3AgatRv29m2LoFbq5vRMa3R3A4wp4d8gwbJKO2fWZFaI3g==",
++      "license": "MIT",
++      "dependencies": {
++        "classnames": "^2.2.5",
++        "json2mq": "^0.2.0",
++        "lodash.debounce": "^4.0.8",
++        "resize-observer-polyfill": "^1.5.0"
++      },
++      "peerDependencies": {
++        "react": "^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0",
++        "react-dom": "^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
++      }
++    },
+     "node_modules/react-transition-group": {
+       "version": "4.4.5",
+       "resolved": "https://registry.npmjs.org/react-transition-group/-/react-transition-group-4.4.5.tgz",
+@@ -14768,6 +14887,12 @@
+       "integrity": "sha512-KigOCHcocU3XODJxsu8i/j8T9tzT4adHiecwORRQ0ZZFcp7ahwXuRU1m+yuO90C5ZUyGeGfocHDI14M3L3yDAQ==",
+       "license": "MIT"
+     },
++    "node_modules/resize-observer-polyfill": {
++      "version": "1.5.1",
++      "resolved": "https://registry.npmjs.org/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz",
++      "integrity": "sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==",
++      "license": "MIT"
++    },
+     "node_modules/resolve": {
+       "version": "1.22.10",
+       "resolved": "https://registry.npmjs.org/resolve/-/resolve-1.22.10.tgz",
+@@ -15560,6 +15685,15 @@
+         "node": ">=8"
+       }
+     },
++    "node_modules/slick-carousel": {
++      "version": "1.8.1",
++      "resolved": "https://registry.npmjs.org/slick-carousel/-/slick-carousel-1.8.1.tgz",
++      "integrity": "sha512-XB9Ftrf2EEKfzoQXt3Nitrt/IPbT+f1fgqBdoxO3W/+JYvtEOW6EgxnWfr9GH6nmULv7Y2tPmEX3koxThVmebA==",
++      "license": "MIT",
++      "peerDependencies": {
++        "jquery": ">=1.8.0"
++      }
++    },
+     "node_modules/sockjs": {
+       "version": "0.3.24",
+       "resolved": "https://registry.npmjs.org/sockjs/-/sockjs-0.3.24.tgz",
+@@ -15843,6 +15977,12 @@
+         "safe-buffer": "~5.2.0"
+       }
+     },
++    "node_modules/string-convert": {
++      "version": "0.2.1",
++      "resolved": "https://registry.npmjs.org/string-convert/-/string-convert-0.2.1.tgz",
++      "integrity": "sha512-u/1tdPl4yQnPBjnVrmdLo9gtuLvELKsAoRapekWggdiQNvvvum+jYF329d84NAa660KQw7pB2n36KrIKVoXa3A==",
++      "license": "MIT"
++    },
+     "node_modules/string-length": {
+       "version": "4.0.2",
+       "resolved": "https://registry.npmjs.org/string-length/-/string-length-4.0.2.tgz",
+@@ -16648,6 +16788,18 @@
+       "integrity": "sha512-eHY7nBftgThBqOyHGVN+l8gF0BucP09fMo0oO/Lb0w1OF80dJv+lDVpXG60WMQvkcxAkNybKsrEIE3ZtKGmPrA==",
+       "license": "MIT"
+     },
++    "node_modules/tiny-case": {
++      "version": "1.0.3",
++      "resolved": "https://registry.npmjs.org/tiny-case/-/tiny-case-1.0.3.tgz",
++      "integrity": "sha512-Eet/eeMhkO6TX8mnUteS9zgPbUMQa4I6Kkp5ORiBD5476/m+PIRiumP5tmh5ioJpH7k51Kehawy2UDfsnxxY8Q==",
++      "license": "MIT"
++    },
++    "node_modules/tiny-warning": {
++      "version": "1.0.3",
++      "resolved": "https://registry.npmjs.org/tiny-warning/-/tiny-warning-1.0.3.tgz",
++      "integrity": "sha512-lBN9zLN/oAf68o3zNXYrdCt1kP8WsiGW8Oo2ka41b2IM5JL/S1CTyX1rW0mb/zSuJun0ZUrDxx4sqvYS2FWzPA==",
++      "license": "MIT"
++    },
+     "node_modules/tmpl": {
+       "version": "1.0.5",
+       "resolved": "https://registry.npmjs.org/tmpl/-/tmpl-1.0.5.tgz",
+@@ -16675,6 +16827,12 @@
+         "node": ">=0.6"
+       }
+     },
++    "node_modules/toposort": {
++      "version": "2.0.2",
++      "resolved": "https://registry.npmjs.org/toposort/-/toposort-2.0.2.tgz",
++      "integrity": "sha512-0a5EOkAUp8D4moMi2W8ZF8jcga7BgZd91O/yabJCFY8az+XSzeGyTKs0Aoo897iV1Nj6guFq8orWDS96z91oGg==",
++      "license": "MIT"
++    },
+     "node_modules/tough-cookie": {
+       "version": "4.1.4",
+       "resolved": "https://registry.npmjs.org/tough-cookie/-/tough-cookie-4.1.4.tgz",
+@@ -18104,6 +18262,30 @@
+       "funding": {
+         "url": "https://github.com/sponsors/sindresorhus"
+       }
++    },
++    "node_modules/yup": {
++      "version": "1.7.1",
++      "resolved": "https://registry.npmjs.org/yup/-/yup-1.7.1.tgz",
++      "integrity": "sha512-GKHFX2nXul2/4Dtfxhozv701jLQHdf6J34YDh2cEkpqoo8le5Mg6/LrdseVLrFarmFygZTlfIhHx/QKfb/QWXw==",
++      "license": "MIT",
++      "dependencies": {
++        "property-expr": "^2.0.5",
++        "tiny-case": "^1.0.3",
++        "toposort": "^2.0.2",
++        "type-fest": "^2.19.0"
++      }
++    },
++    "node_modules/yup/node_modules/type-fest": {
++      "version": "2.19.0",
++      "resolved": "https://registry.npmjs.org/type-fest/-/type-fest-2.19.0.tgz",
++      "integrity": "sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==",
++      "license": "(MIT OR CC0-1.0)",
++      "engines": {
++        "node": ">=12.20"
++      },
++      "funding": {
++        "url": "https://github.com/sponsors/sindresorhus"
++      }
+     }
+   }
+ }
+diff --git a/package.json b/package.json
+index 5535694..9f86aec 100644
+--- a/package.json
++++ b/package.json
+@@ -11,11 +11,16 @@
+     "@testing-library/jest-dom": "^6.8.0",
+     "@testing-library/react": "^16.3.0",
+     "@testing-library/user-event": "^13.5.0",
++    "formik": "^2.4.6",
++    "formik-mui": "^5.0.0-alpha.1",
+     "react": "^19.1.1",
+     "react-dom": "^19.1.1",
+-    "react-router-dom": "^7.9.1",
++    "react-router-dom": "^7.9.3",
+     "react-scripts": "5.0.1",
+-    "web-vitals": "^2.1.4"
++    "react-slick": "^0.31.0",
++    "slick-carousel": "^1.8.1",
++    "web-vitals": "^2.1.4",
++    "yup": "^1.2.0"
+   },
+   "scripts": {
+     "start": "react-scripts start",
+diff --git a/public/index.html b/public/index.html
+index aa069f2..09e975e 100644
+--- a/public/index.html
++++ b/public/index.html
+@@ -41,3 +41,4 @@
+     -->
+   </body>
+ </html>
++
+diff --git a/public/manifest.json b/public/manifest.json
+index 080d6c7..4910774 100644
+--- a/public/manifest.json
++++ b/public/manifest.json
+@@ -23,3 +23,4 @@
+   "theme_color": "#000000",
+   "background_color": "#ffffff"
+ }
++
+diff --git a/src/App.css b/src/App.css
+index 74b5e05..e247a5f 100644
+--- a/src/App.css
++++ b/src/App.css
+@@ -36,3 +36,4 @@
+     transform: rotate(360deg);
+   }
+ }
++
+diff --git a/src/App.js b/src/App.js
+index 23c467e..7749391 100644
+--- a/src/App.js
++++ b/src/App.js
+@@ -1,22 +1,37 @@
++import logo from "./logo.svg";
++import "./App.css";
++import { Navbar } from "./component/Navbar/Navbar";
++import { CssBaseline } from "@mui/material";
++import { ThemeProvider, createTheme } from '@mui/material/styles';
+ import React from "react";
+-import { ThemeProvider } from "@emotion/react";
+-import Routers from "./Routers/Routers";
++import RestaurantDetails from "./component/Restaurant/RestaurantDetails";
++import Cart from "./component/Cart/Cart";
++import Profile from "./component/Profile/Profile";
+ 
+-// mock theme
+-const darkTheme = {
+-  colors: {
+-    primary: "#333",
+-    background: "#000",
+-    text: "#fff",
++const darkTheme = createTheme({
++  palette: {
++    mode: 'dark',
+   },
+-};
++});
++
+ 
+ function App() {
+   return (
+     <ThemeProvider theme={darkTheme}>
+-      <Routers />
+-    </ThemeProvider>
++      <CssBaseline/>
++   <Navbar/>
++    {/* <Home/> */}
++    {/* <RestaurantDetails/> */}
++    {/* <Cart/> */}
++    <Profile/>   
++   
++   </ThemeProvider>
++    
++    
++
++     
+   );
+ }
+ 
+ export default App;
++
+diff --git a/src/component/Navbar/Navbar.jsx b/src/component/Navbar/Navbar.jsx
+index 3352329..79fc6bf 100644
+--- a/src/component/Navbar/Navbar.jsx
++++ b/src/component/Navbar/Navbar.jsx
+@@ -1,7 +1,50 @@
++import{ Avatar,Badge,Box,IconButton} from '@mui/material'
+ import React from 'react'
+-
++import SearchIcon from '@mui/icons-material/Search'; 
++import { pink } from '@mui/material/colors';
++import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
++import "./Navbar.css"
+ export const Navbar = () => {
+   return (
+-    <div>Navbar</div>
++    <Box 
++     className='px-5 sticky top-0 z-50 py-[.8rem] bg-[#e91e63] lg:px-20 flex
++     justify-between'>
++
++        <div className='lg:mr-10 cursor-pointer flex items-center space-x-4'>
++          <li className='logo font-semibold text-gray-300 text-2xl'>
++            Sweetopia
++            </li>
++
++        </div>
++
++     
++
++      <div className='flex items-center space-x-2 lg:spac-x-10'>
++
++    <div className=''>
++    <IconButton >
++        <SearchIcon sx={{fontSize:"1.5rem"}}/>
++    </IconButton>
++
++    </div>
++    <div className=''>
++
++        <Avatar sx={{bgcolor:"white",color:pink.A400}}>C</Avatar>
++
++    </div>
++
++     <div className=''>
++
++   <IconButton >
++    <Badge color='black' badgeContent={3}>
++      <ShoppingCartIcon sx={{fontSize:"1.5rem"}}/>
++    </Badge>
++        
++    </IconButton>   
++
++    </div>
++      </div>
++    </Box>
+   )
+ }
++ 
+diff --git a/src/component/Navbar/PaymentSuccess/PaymentSucess.js b/src/component/Navbar/PaymentSuccess/PaymentSucess.js
+deleted file mode 100644
+index 88ab34c..0000000
+--- a/src/component/Navbar/PaymentSuccess/PaymentSucess.js
++++ /dev/null
+@@ -1,19 +0,0 @@
+-import React from 'react'
+-import TaskAltIcon from '@mui/icons-material/TaskAlt';
+-
+-export const PaymentSucess = () => {
+-    const navigate = useNavigate();
+-    return (
+-        <div className='min-h-screen px-5'>
+-            <div className="flex flex-col items-center justify-center h-[90vh] px-5 ">
+-                <Card className="box w-full lg:w-11/4 flex flex-col items-center rounded-md p-5">
+-                    <TaskAltIcon sx={{ fontsize: "5em", color: green[500] }} />
+-                    <h1 className="py5 text-2xl font-semibold">Order Sucess!</h1>
+-                    <p className="py-3 text-center text-gray-400">Thank you for choosing our restaurant! We appreciate your order</p>
+-                    <p className="py-2 text-center text-gray-200 text-lg">Have A Greate Day!</p>
+-                    <button onClick={()=>navigate("/")} variant= "contained" className="py-5" sx={{margin:"1rem 0rem"}}>Go to Home </button>
+-                </Card>
+-            </div>
+-        </div>
+-    );
+-};
+diff --git a/src/index.css b/src/index.css
+index ec2585e..1896cf6 100644
+--- a/src/index.css
++++ b/src/index.css
+@@ -11,3 +11,7 @@ code {
+   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+     monospace;
+ }
++
++@tailwind base;
++@tailwind components;
++@tailwind utilities;
+diff --git a/src/index.js b/src/index.js
+index d563c0f..a5fb15b 100644
+--- a/src/index.js
++++ b/src/index.js
+@@ -3,11 +3,16 @@ import ReactDOM from 'react-dom/client';
+ import './index.css';
+ import App from './App';
+ import reportWebVitals from './reportWebVitals';
++import { BrowserRouter } from 'react-router-dom';
+ 
+ const root = ReactDOM.createRoot(document.getElementById('root'));
+ root.render(
+   <React.StrictMode>
+-    <App />
++    <BrowserRouter>
++     <App />
++    </BrowserRouter>
++    
++   
+   </React.StrictMode>
+ );
+ 
+@@ -15,3 +20,4 @@ root.render(
+ // to log results (for example: reportWebVitals(console.log))
+ // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+ reportWebVitals();
++
+diff --git a/src/reportWebVitals.js b/src/reportWebVitals.js
+index 5253d3a..c45d031 100644
+--- a/src/reportWebVitals.js
++++ b/src/reportWebVitals.js
+@@ -11,3 +11,4 @@ const reportWebVitals = onPerfEntry => {
+ };
+ 
+ export default reportWebVitals;
++
+diff --git a/src/setupTests.js b/src/setupTests.js
+index 8f2609b..b11125c 100644
+--- a/src/setupTests.js
++++ b/src/setupTests.js
+@@ -3,3 +3,4 @@
+ // expect(element).toHaveTextContent(/react/i)
+ // learn more: https://github.com/testing-library/jest-dom
+ import '@testing-library/jest-dom';
++
+diff --git a/tailwind.config.js b/tailwind.config.js
+index d947ab1..3e9031e 100644
+--- a/tailwind.config.js
++++ b/tailwind.config.js
+@@ -1,9 +1,8 @@
+ /** @type {import('tailwindcss').Config} */
+ module.exports = {
+-  content: [],
+-  theme: {
+-    extend: {},
+-  },
++  content: ["./src/**/*.{js,jsx,ts,tsx}"],
++  theme: { extend: {} },
+   plugins: [],
+-}
++};
+ 
++ 
