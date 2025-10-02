@@ -6,7 +6,7 @@ import CreateRestaurantForm from '../AdminComponent/CreateRestaurantForm/CreateR
 export const AdminRoute = () => { 
     return ( 
     <Routes> 
-        <Route path='/*' element={false ? <CreateRestaurantForm />:<Admin/>}> </Route> 
+        <Route path='/*' element={false?<CreateRestaurantForm />:<Admin/>}> </Route> 
     </Routes> 
     )
  }

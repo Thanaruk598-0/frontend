@@ -1,31 +1,36 @@
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
 import React from 'react'
 import { Box, Card, CardHeader } from '@mui/material';
+import CreateIcon from '@mui/icons-material/Create';
+import { useNavigate } from 'react-router-dom';
 
+const orders=[1,1,1,1,1,1,1];
 
-const orders=[1,1,1,1,1,1,1]
-
-export default function OrderTable() {
-
+export default function MenuTable() {
+  const navigate=useNavigate();
   return (
   <Box>
-    <Card className=''>
-        <CardHeader
-        title={"All Orders"}
-        sx={{pt:2,alignItems:"center"}}
-        
-        />
+    <Card className="mt-1">
+        <CardHeader action={
+          
+          <IconButton onClick={()=>navigate("/admin/restaurants/add-menu")} aria-label="settings">
+
+            <CreateIcon />
+          </IconButton>
+        }
+        title={"Menu"}
+        sx={{pt:2,alignItems:"center"}} />
+
          <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>id</TableCell>
-            <TableCell align="right">image</TableCell>
-            <TableCell align="right">Customer</TableCell>
+            <TableCell align="left">image</TableCell>
+            <TableCell align="right">title</TableCell>
             <TableCell align="right">price</TableCell>
-            <TableCell align="right">name</TableCell>
             <TableCell align="right">ingredients</TableCell>
-            <TableCell align="right">status</TableCell>
+            <TableCell align="right">Avaibilty</TableCell>
+            <TableCell align="right">Delete</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -42,8 +47,11 @@ export default function OrderTable() {
               
               <TableCell align="right">{"price"}</TableCell>
               <TableCell align="right">{"cake"}</TableCell>
-              <TableCell align="right">{"ingredients"}</TableCell>
-              <TableCell align="right">{"completed"}</TableCell>
+              <TableCell align="right">
+                <IconButton>
+                    <Delete />
+                </IconButton>
+                </TableCell>
             </TableRow>
           ))}
         </TableBody>
