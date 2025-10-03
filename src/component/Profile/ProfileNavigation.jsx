@@ -8,6 +8,7 @@ import EventIcon from '@mui/icons-material/Event';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { AddReaction } from "@mui/icons-material";
 import { Divider, Drawer, useMediaQuery } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const menu=[
     {title:"Orders",icon:<ShoppingBagIcon/>},
@@ -22,8 +23,8 @@ export const ProfileNavigation = ({open,handleClose}) => {
   const isSmallScreen = useMediaQuery('(max-width:900px)');
     const navigate=useNavigate();
 
-  const handleNavigate=()=>{
-navigate("/my-profile/{}")
+  const handleNavigate=(item)=>{
+navigate(`/my-profile/${item.title.toLowerCase()}`)
   }
 
     return (
@@ -38,7 +39,7 @@ navigate("/my-profile/{}")
                 <div className="w-[25vw] lg:w-[20vw h-[100vh] flex flex-col
                  justify-center text-xl pt-1 gap-8 ">
                 {menu.map((item,i)=><>
-                <div className="px-5 flex items-center space-x-5 cursor-pointer">
+                <div onClick={()=>handleNavigate(item)} className="px-5 flex items-center space-x-5 cursor-pointer">
                     {item.icon}
                     <span>{item.title}</span>
                 </div>
@@ -50,3 +51,5 @@ navigate("/my-profile/{}")
         </div>
     )
 }
+
+export default ProfileNavigation;
