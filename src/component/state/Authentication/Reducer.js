@@ -1,5 +1,5 @@
 import { isPresentInFavorites } from "../../../AdminComponent/config/logic";
-import { ADD_TO_FAVORITE_REQUEST, ADD_TO_FAVORITE_SUCCESS, GET_USER_REQUEST, GET_USER_SUCCESS, LOGIN_REQUEST, LOGIN_SUCCESS, REGISTER_FAILURE, REGISTER_REQUEST, REGISTER_SUCCESS } from "./ActionType";
+import { ADD_TO_FAVORITE_REQUEST, ADD_TO_FAVORITE_SUCCESS, GET_USER_REQUEST, GET_USER_SUCCESS, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT, REGISTER_FAILURE, REGISTER_REQUEST, REGISTER_SUCCESS } from "./ActionType";
 
 const initialState = {
     user: null,
@@ -48,6 +48,9 @@ export const authReducer = (state = initialState, action) => {
                     ? state.favorites.filter((item) => item.id !== action.playload.id)
                     : [action.playload, ...state.favorites]
             };
+        case LOGOUT:
+        return initialState;
+         
         case REGISTER_FAILURE:
         case LOGIN_FAILURE:
         case GET_USER_FREGISTER_FAILURE:
@@ -58,8 +61,6 @@ export const authReducer = (state = initialState, action) => {
                 error: action.playload,
                 success: null
             };
-
-
         default:
             return state;
 

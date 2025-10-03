@@ -1,5 +1,5 @@
 import { api, API_URL } from "../../../AdminComponent/config/api"
-import { ADD_TO_FAVORITE_FAILURE, ADD_TO_FAVORITE_REQUEST, ADD_TO_FAVORITE_SUCCESS, GET_USER_FAILURE, GET_USER_REQUEST, LOGIN_FAILURE, LOGOUT, REGISTER_FAILURE, REGISTER_REQUEST, REGISTER_SUCCESS } from "./ActionType"
+import { ADD_TO_FAVORITE_FAILURE, ADD_TO_FAVORITE_REQUEST, ADD_TO_FAVORITE_SUCCESS, GET_USER_FAILURE, GET_USER_REQUEST, GET_USER_SUCCESS, LOGIN_FAILURE, LOGOUT, REGISTER_FAILURE, REGISTER_REQUEST, REGISTER_SUCCESS } from "./ActionType"
 
 export const registerUser =(reqData)=>async(dispatch)=>{
      dispatch({type:REGISTER_REQUEST})
@@ -50,7 +50,7 @@ export const getUser =(jwt)=>async(dispatch)=>{
             Authorization:`Bearer ${jwt}`
         }
        })
-        dispatch({type:LOGIN_SUCCESS,playload:data})
+        dispatch({type:GET_USER_SUCCESS,playload:data})
         console.log("user profile",data)
 
     } catch (error){
@@ -79,8 +79,7 @@ export const addToFavorite =({jwt,restaurant})=>async(dispatch)=>{
 
 
 export const logout =()=>async(dispatch)=>{
-     dispatch({type:ADD_TO_FAVORITE_REQUEST})
-    try{
+    try {
        localStorage.clear();
         dispatch({type:LOGOUT})
         console.log("logout success",data)
