@@ -8,6 +8,7 @@ import RestaurantDetails from "./component/Restaurant/RestaurantDetails";
 import Cart from "./component/Cart/Cart";
 import Profile from "./component/Profile/Profile";
 
+
 const darkTheme = createTheme({
   palette: {
     mode: 'dark',
@@ -15,18 +16,22 @@ const darkTheme = createTheme({
 });
 
 function App() {
-  const dispatch = useDispatch()
-  const jwt = localStorage.getItem("jwt")
-  const { auth } = useSelector(store => store)
 
-  useEffect(() => {
+  const dispatch=useDispatch()
+  const jwt=localStorage.getItem("jwt")
+  const {auth}=useSelector((store)=> store);
+
+  useEffect(()=>{
     dispatch(getUser(auth.jwt || jwt));
-  }, [auth.jwt]);
-
+  },[auth.jwt]
+  );
   return (
     <ThemeProvider theme={darkTheme}>
-
-
+      <CssBaseline/>
+    <CustomerRoute/>
+   
+   </ThemeProvider>
+    
   );
 }
 
