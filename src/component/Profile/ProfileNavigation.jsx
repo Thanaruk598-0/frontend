@@ -8,8 +8,7 @@ import EventIcon from '@mui/icons-material/Event';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { AddReaction } from "@mui/icons-material";
 import { Divider, Drawer, useMediaQuery } from "@mui/material";
-import { useDispatch } from "react-redux";
-import { logout } from "../state/Authentication/Action";
+
 
 const menu = [
   { title: "Orders", icon: <ShoppingBagIcon /> },
@@ -24,13 +23,6 @@ export const ProfileNavigation = ({ open, handleClose }) => {
   const isSmallScreen = useMediaQuery('(max-width:900px)');
   const navigate = useNavigate();
 
-  const handleNavigate = () => {
-    if (item.tittle === "Logout") {
-      dispatch(logout());
-      navigate("/")
-    }
-    else
-    navigate("/my-profile/{}")
   }
 
   return (
@@ -44,16 +36,20 @@ export const ProfileNavigation = ({ open, handleClose }) => {
       >
         <div className="w-[25vw] lg:w-[20vw h-[100vh] flex flex-col
                  justify-center text-xl pt-1 gap-8 ">
-          {menu.map((item, i) => <>
-            <div className="px-5 flex items-center space-x-5 cursor-pointer">
-              {item.icon}
-              <span>{item.title}</span>
-            </div>
-            {i !== menu.length - 1 && <Divider />}
-          </>
-          )}
+
+                {menu.map((item,i)=><>
+                <div onClick={()=>handleNavigate(item)} className="px-5 flex items-center space-x-5 cursor-pointer">
+                    {item.icon}
+                    <span>{item.title}</span>
+                </div>
+                {i!== menu.length-1 && <Divider/>}
+                </>
+                )}
+                </div>
+              </Drawer>
         </div>
-      </Drawer>
-    </div>
-  )
-}
+    )
+
+
+export default ProfileNavigation;
+
