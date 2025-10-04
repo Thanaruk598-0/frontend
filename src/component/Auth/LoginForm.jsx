@@ -40,12 +40,23 @@ const navigate = useNavigate()
                 variant="outlined"
                 margin="normal"
                 />
-                <Button sx={{mt:2,padding:"1rem"}} fullWiudth type='submit' variant='contain'></Button>
+                <Button
+                 sx={{
+                mt: 2,
+                py: "0.8rem",
+                backgroundColor: "#ff0066",
+                "&:hover": { backgroundColor: "#e6005c" },
+              }}
+              fullWidth
+              type="submit"
+              variant="contained"
+                >
+                    Login</Button>
                 </Form>
             </Formik>
             <Typography variant='body2' align='center' sx={{mt:3}}>
                 Don't have an account?
-                <Button  size='small' coClick={()=>navigate("/account/register")}>
+                <Button  size='small' onClick={()=>navigate("/account/register")}>
                     register
                     </Button>
             </Typography>

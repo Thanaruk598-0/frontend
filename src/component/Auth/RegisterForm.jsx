@@ -1,19 +1,19 @@
 import React from 'react';
 import { Button, Typography, TextField } from '@mui/material';
-import { Field, Formik, Form  } from 'formik';
+import { Field, Formik, Form } from 'formik';
 import { useNavigate } from 'react-router-dom';
-import {FormControl,  InputLabel,  Select,MenuItem,} from "@mui/material";
+import { FormControl, InputLabel, Select, MenuItem, } from "@mui/material";
 
 
 
-  const initialValues = {
-    fullName:'',
-    email: '',
-    password: '',
-    role:"ROLE_CUSTOMER"
-  }
+const initialValues = {
+  fullName: '',
+  email: '',
+  password: '',
+  role: 'ROLE_CUSTOMER'
+}
 
-  export default function RegisterForm(){
+export default function RegisterForm() {
   const navigate = useNavigate();
 
   const handleSubmit = (values) => {
@@ -28,7 +28,8 @@ import {FormControl,  InputLabel,  Select,MenuItem,} from "@mui/material";
 
       <Formik onSubmit={handleSubmit} initialValues={initialValues}>
         <Form>
-             <Field
+          <Field
+
             as={TextField}
             name="fullName"
             label="full name"
@@ -55,23 +56,29 @@ import {FormControl,  InputLabel,  Select,MenuItem,} from "@mui/material";
             margin="normal"
           />
 
-          <FormControl fullWidth>
-  <InputLabel id="demo-simple-select-label">Role</InputLabel>
-  as={Select}
-    labelId="demo-simple-select-label"
-    id="demo-simple-select"
-    value={age}
-    label="Age"
-    onChange={handleChange}
-  >
-    <MenuItem value={10}>Ten</MenuItem>
-    <MenuItem value={20}>Twenty</MenuItem>
-    <MenuItem value={30}>Thirty</MenuItem>
-  </Select>
-</FormControl>
+
+          <Field
+            fullWidth
+            margin="normal"
+            as={Select}
+            labelId="role-simple-select-label"
+            id="demo-simple-select"
+            name="role"
+          // value={age}
+          // onChange={handleChange}
+          >
+            <MenuItem value={"ROLE_CUSTOMER"}>Customer</MenuItem>
+            <MenuItem value={"ROLE_RESTAURANT_OWNER"}>
+              Restaurant Owner
+            </MenuItem>
+          </Field>
 
           <Button
-            sx={{ mt: 2, padding: '1rem' }}
+            sx={{
+              mt: 2, padding: '1rem',
+              backgroundColor: "#ff0066",
+              "&:hover": { backgroundColor: "#e6005c" },
+            }}
             fullWidth
             type="submit"
             variant="contained"
