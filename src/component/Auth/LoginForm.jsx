@@ -4,18 +4,20 @@ import React from 'react'
 import { Field, Formik , Form } from 'formik'
 import  { TextField } from '@mui/material'
 import { useNavigate } from 'react-router-dom';
-
+import { loginUser } from "../State/Authentication/Action";
+import { useDispatch } from 'react-redux'
 
 const initialValues={
     email:"",
     Password:""
 }
 export const LoginForm = () => {
-const navigate = useNavigate()
+const navigate = useNavigate();
+const dispatch=useDispatch();
 
-    const handleSubmit=()=>{
-
-    }
+    const handleSubmit=(value)=>{
+        dispatch=(loginUser({useData:value,navigate}));
+    };
     return (
         <div>
             <Typography variant='h5' className='text-center'>

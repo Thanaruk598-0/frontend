@@ -1,10 +1,10 @@
-import React from 'react';
+import React,{useEffect } from 'react';
 import "./Home.css";
 import MultiItemCarousel from './MultiltemCarousel';
-import { Restaurant } from '@mui/icons-material';
 import RestaurantCard from '../Restaurant/RestaurantCard.jsx';
-
-
+import { Auth } from '../Auth/Auth.jsx';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllRestaurantsAction } from '../State/Restaurant/Action.js';
 
     const settings = {
     dots: true,
@@ -13,8 +13,18 @@ import RestaurantCard from '../Restaurant/RestaurantCard.jsx';
     slidesToShow: 5,
     slidesToScroll: 5
   };
-  const restaurant=[1,1,1,1,1,1,1,1]
+  const restaurants=[1,1,1,1,1,1,1,1]
   const Home = () => {
+    const dispatch=useDispatch()
+    const jwt=localStorage.getItem("jwt")
+    const {restaurant}=useSelector(store=>store)
+
+    console.log("restaurant",restaurant)
+
+    useEffect(()=>{
+      dispatch(getAllRestaurantsAction(jwt))
+    },[])
+
   return (
     <div className="pb-10">
       <section className="banner relative flex flex-col justify-center items-center items-center pt-5">
@@ -37,7 +47,7 @@ Indulge in Joy: Desserts, Quick and Delivered.          </p>
         <h1 className="text-2xl font-semibold text-gray-400 py-5">Order From Our Handpicked Favorites </h1>
         <div className="flex flex-wrap items-center justify-around gap-5">
             {
-                restaurant.map((item)=><RestaurantCard/>)
+                restaurants.map((item)=><RestaurantCard/>)
             }
         </div>
       </section>

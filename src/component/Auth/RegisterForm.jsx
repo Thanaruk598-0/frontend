@@ -1,23 +1,23 @@
 import React from 'react';
-import { Button, Typography, TextField } from '@mui/material';
+import { Button, Typography, TextField, Select, MenuItem } from '@mui/material';
 import { Field, Formik, Form } from 'formik';
 import { useNavigate } from 'react-router-dom';
-import { FormControl, InputLabel, Select, MenuItem, } from "@mui/material";
-
-
-
+import { useDispatch } from "react-redux";
+import { registerUser } from '../State/Authentication/Action';
 const initialValues = {
   fullName: '',
   email: '',
   password: '',
   role: 'ROLE_CUSTOMER'
-}
+};
 
 export default function RegisterForm() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSubmit = (values) => {
-    console.log('Form values:', values);
+    console.log('form values:', values);
+    dispatch(registerUser({ useData: values, navigate }));
   };
 
   return (
@@ -29,10 +29,9 @@ export default function RegisterForm() {
       <Formik onSubmit={handleSubmit} initialValues={initialValues}>
         <Form>
           <Field
-
             as={TextField}
             name="fullName"
-            label="full name"
+            label="Full Name"
             fullWidth
             variant="outlined"
             margin="normal"
@@ -45,7 +44,6 @@ export default function RegisterForm() {
             variant="outlined"
             margin="normal"
           />
-
           <Field
             as={TextField}
             name="password"
@@ -56,21 +54,15 @@ export default function RegisterForm() {
             margin="normal"
           />
 
-
           <Field
+            as={Select}
             fullWidth
             margin="normal"
-            as={Select}
-            labelId="role-simple-select-label"
-            id="demo-simple-select"
             name="role"
-          // value={age}
-          // onChange={handleChange}
+            labelId="role-simple-select-label"
           >
-            <MenuItem value={"ROLE_CUSTOMER"}>Customer</MenuItem>
-            <MenuItem value={"ROLE_RESTAURANT_OWNER"}>
-              Restaurant Owner
-            </MenuItem>
+            <MenuItem value="ROLE_CUSTOMER">Customer</MenuItem>
+            <MenuItem value="ROLE_RESTAURANT_OWNER">Restaurant Owner</MenuItem>
           </Field>
 
           <Button
@@ -89,12 +81,11 @@ export default function RegisterForm() {
       </Formik>
 
       <Typography variant="body2" align="center" sx={{ mt: 3 }}>
-        if have an already account?{' '}
+        Already have an account?{' '}
         <Button size="small" onClick={() => navigate('/account/login')}>
           Login
         </Button>
       </Typography>
     </div>
   );
-};
-
+}
